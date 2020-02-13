@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="javadoc">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/lib/javadoc/junit-dep-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/javadoc/jsr305-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/javadoc/hamcrest-library-javadoc.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

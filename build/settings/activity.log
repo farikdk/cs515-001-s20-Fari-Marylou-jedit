@@ -1,0 +1,162 @@
+Log file created on Thu Feb 13 14:10:44 MST 2020
+IMPORTANT:
+Because updating this file after every log message would kill
+performance, it will be *incomplete* unless you invoke the
+Utilities->Troubleshooting->Update Activity Log on Disk command!
+2:10:44 PM [main] [message] Log: When reporting bugs, please include the following information:
+2:10:44 PM [main] [message] Log: java.version=1.8.0_241
+2:10:44 PM [main] [message] Log: java.vm.version=25.241-b07
+2:10:44 PM [main] [message] Log: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2:10:44 PM [main] [message] Log: java.runtime.version=1.8.0_241-b07
+2:10:44 PM [main] [message] Log: java.runtime.name=Java(TM) SE Runtime Environment
+2:10:44 PM [main] [message] Log: java.vendor=Oracle Corporation
+2:10:44 PM [main] [message] Log: java.compiler=null
+2:10:44 PM [main] [message] Log: os.name=Windows 10
+2:10:44 PM [main] [message] Log: os.version=10.0
+2:10:44 PM [main] [message] Log: os.arch=amd64
+2:10:44 PM [main] [message] Log: user.home=C:\Users\Fazraneh_PC
+2:10:44 PM [main] [message] Log: java.home=C:\Program Files\Java\jre1.8.0_241
+2:10:44 PM [main] [message] Log: java.class.path=C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\jedit.jar
+2:10:44 PM [main] [message] jEdit: starting with command line arguments: -settings=C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build/settings
+2:10:44 PM [main] [debug] jEdit: before splash screen activation:34 ms
+2:10:44 PM [main] [debug] jEdit: after splash screen activation:213 ms
+2:10:44 PM [main] [debug] MiscUtilities: Saving backup of file "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\activity.log" to "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\settings-backup\activity.log~1~"
+2:10:44 PM [main] [notice] jEdit: jEdit version 5.5.0
+2:10:44 PM [main] [message] jEdit: Settings directory is C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings
+2:10:44 PM [main] [message] jEdit: jEdit home directory is C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build
+2:10:44 PM [main] [debug] SplashScreen: init:9/116ms
+2:10:44 PM [main] [debug] SplashScreen: init system properties:12/128ms
+2:10:44 PM [main] [message] BeanShell: Beanshell Init
+2:10:44 PM [main] [debug] SplashScreen: init beanshell:20/148ms
+2:10:44 PM [main] [debug] SplashScreen: loading site properties:4/152ms
+2:10:44 PM [main] [debug] SplashScreen: loading user properties:1/153ms
+2:10:44 PM [main] [debug] GUIUtilities: Icon theme set to: tango
+2:10:44 PM [main] [debug] GUIUtilities: Loading icon theme from: jeditresource:/org/gjt/sp/jedit/icons/themes/tango/
+2:10:44 PM [main] [debug] SplashScreen: init GUI:2/155ms
+2:10:44 PM [main] [debug] EditServer: jEdit server started on port 50443
+2:10:44 PM [main] [debug] EditServer: Authorization key is 372488820
+2:10:44 PM [main] [debug] SplashScreen: init server:6/161ms
+2:10:44 PM [main] [debug] jEdit: initPLAF non-edt old=javax.swing.plaf.metal.MetalLookAndFeel requested=null new=javax.swing.plaf.metal.MetalLookAndFeel
+2:10:44 PM [main] [debug] SplashScreen: init look and feel:2/163ms
+2:10:44 PM [main] [debug] SplashScreen: init VFS Manager:1/164ms
+2:10:44 PM [main] [debug] ActionSet: Loading actions from jar:file:/C:/Users/Fazraneh_PC/eclipse-workspace-jedit/cs515-001-s20-Fari-Marylou-jedit/build/jedit.jar!/org/gjt/sp/jedit/actions.xml
+2:10:45 PM [main] [debug] DockableWindowManager: Loading dockables from jar:file:/C:/Users/Fazraneh_PC/eclipse-workspace-jedit/cs515-001-s20-Fari-Marylou-jedit/build/jedit.jar!/org/gjt/sp/jedit/dockables.xml
+2:10:45 PM [main] [debug] SplashScreen: init resources:53/217ms
+2:10:45 PM [AWT-EventQueue-0] [debug] EditBus: SearchSettingsChanged[source=null]
+2:10:45 PM [main] [debug] SplashScreen: Migrate keymaps:29/246ms
+2:10:45 PM [main] [notice] jEdit: Loading plugins from C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\jars
+2:10:45 PM [AWT-EventQueue-0] [debug] EditBus: PluginUpdate[what=LOADED,exit=false,version=5.0,source=C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\jars\QuickNotepad.jar,class=QuickNotepadPlugin]
+2:10:45 PM [main] [notice] jEdit: Loading plugins from C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\jars
+2:10:45 PM [main] [debug] SplashScreen: init plugins:8/254ms
+2:10:45 PM [main] [message] HistoryModel: Loading history
+2:10:45 PM [main] [debug] SplashScreen: init history model:2/256ms
+2:10:45 PM [main] [message] BufferHistory: Loading C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\recent.xml
+2:10:45 PM [main] [debug] SplashScreen: init buffer history:2/258ms
+2:10:45 PM [main] [message] KillRing: Loading C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\killring.xml
+2:10:45 PM [main] [debug] SplashScreen: init killring:5/263ms
+2:10:45 PM [main] [debug] jEdit: initPLAF non-edt old=javax.swing.plaf.metal.MetalLookAndFeel requested=null new=javax.swing.plaf.metal.MetalLookAndFeel
+2:10:45 PM [main] [debug] jEdit: SOCKS proxy disabled
+2:10:45 PM [main] [debug] jEdit: HTTP proxy disabled
+2:10:45 PM [AWT-EventQueue-0] [debug] EditBus: PropertiesChanged[source=null]
+2:10:45 PM [main] [debug] SplashScreen: init various properties:46/309ms
+2:10:45 PM [main] [message] jEdit: Loading mode catalog file C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\modes\catalog
+2:10:45 PM [main] [message] jEdit: Loading mode catalog file C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\modes\catalog
+2:10:45 PM [main] [debug] SplashScreen: init modes:26/335ms
+2:10:45 PM [main] [debug] SplashScreen: activate plugins:2/337ms
+2:10:45 PM [main] [debug] Macros: Registered beanshell macro handler
+2:10:45 PM [AWT-EventQueue-0] [debug] EditBus: DynamicMenuChanged[menu=macros,source=null]
+2:10:45 PM [main] [debug] SplashScreen: init macros:11/348ms
+2:10:45 PM [main] [message] BeanShell: Running script C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\startup\startup.bsh
+2:10:45 PM [main] [notice] jEdit$5: Loading edit mode C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\modes\text.xml
+2:10:45 PM [main] [debug] String: BeanShell interpreter version 2.0b4-jedit
+2:10:45 PM [main] [debug] SplashScreen: run startup scripts:63/411ms
+2:10:45 PM [main] [debug] SplashScreen: run startup scripts:1/412ms
+2:10:45 PM [main] [debug] SplashScreen: run startup scripts:1/412ms
+2:10:45 PM [main] [debug] jEdit: main done:531 ms
+2:10:45 PM [AWT-EventQueue-0] [message] PerspectiveManager: Loading C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\perspective.xml
+2:10:45 PM [AWT-EventQueue-0] [debug] EditBus: BufferUpdate[what=PROPERTIES_CHANGED,view=null,source=Untitled-1 (%USERPROFILE%\cs515-softwareMaintananceEvolution\cs515-001-s20-Fari-Marylou-jedit\)]
+2:10:45 PM [AWT-EventQueue-0] [debug] EditBus: BufferUpdate[what=CREATED,view=null,source=Untitled-1 (%USERPROFILE%\cs515-softwareMaintananceEvolution\cs515-001-s20-Fari-Marylou-jedit\)]
+2:10:45 PM [AWT-EventQueue-0] [debug] EditBus: BufferUpdate[what=LOAD_STARTED,view=null,source=Untitled-1 (%USERPROFILE%\cs515-softwareMaintananceEvolution\cs515-001-s20-Fari-Marylou-jedit\)]
+2:10:45 PM [AWT-EventQueue-0] [debug] EditBus: BufferUpdate[what=LOADED,view=null,source=Untitled-1 (%USERPROFILE%\cs515-softwareMaintananceEvolution\cs515-001-s20-Fari-Marylou-jedit\)]
+2:10:45 PM [AWT-EventQueue-0] [debug] BufferSet: 2111933393: addBufferSetListener org.gjt.sp.jedit.EditPane[inactive]
+2:10:45 PM [AWT-EventQueue-0] [debug] EditBus: BufferChanging[what=BUFFER_CHANGING,source=org.gjt.sp.jedit.EditPane[inactive]]
+2:10:45 PM [AWT-EventQueue-0] [debug] BufferSet: 2111933393 addBufferAt(Untitled-1 (%USERPROFILE%\cs515-softwareMaintananceEvolution\cs515-001-s20-Fari-Marylou-jedit\),-1)
+2:10:45 PM [AWT-EventQueue-0] [debug] BufferSet: 2111933393: Buffer added Untitled-1 (%USERPROFILE%\cs515-softwareMaintananceEvolution\cs515-001-s20-Fari-Marylou-jedit\) at 0
+2:10:45 PM [AWT-EventQueue-0] [debug] EditBus: EditPaneUpdate[what=CREATED,source=org.gjt.sp.jedit.EditPane[inactive]]
+2:10:45 PM [AWT-EventQueue-0] [debug] BufferSet: 2111933393 addBufferAt(Untitled-1 (%USERPROFILE%\cs515-softwareMaintananceEvolution\cs515-001-s20-Fari-Marylou-jedit\),0)
+2:10:45 PM [AWT-EventQueue-0] [debug] BufferSet: 2111933393 addBufferAt(Untitled-1 (%USERPROFILE%\cs515-softwareMaintananceEvolution\cs515-001-s20-Fari-Marylou-jedit\),1)
+2:10:45 PM [AWT-EventQueue-0] [debug] EditBus: ViewUpdate[what=CREATED,source=org.gjt.sp.jedit.View[active]]
+2:10:45 PM [AWT-EventQueue-0] [debug] EditBus: EditorStarted[source=null]
+2:10:45 PM [AWT-EventQueue-0] [message] jEdit: Startup complete: 859 ms
+2:10:45 PM [AWT-EventQueue-0] [debug] EditBus: ViewUpdate[what=VIEW_ACTIVATED,source=org.gjt.sp.jedit.View[active]]
+2:10:45 PM [AWT-EventQueue-0] [debug] JEditTextArea: InputMethodSupport is activated
+2:11:15 PM [AWT-EventQueue-0] [debug] MiscUtilities: Saving backup of file "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\perspective.xml" to "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\settings-backup\perspective.xml~1~"
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [message] EditServer: Socket[addr=/127.0.0.1,port=50596,localport=50443]: connected
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: Socket[addr=/127.0.0.1,port=50596,localport=50443]: authenticated successfully
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: parent = "C:\\Users\\Fazraneh_PC\\eclipse-workspace-jedit\\cs515-001-s20-Fari-Marylou-jedit";
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: args = new String[1];
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: args[0] = null;
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: view = jEdit.getLastView();
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: buffer = EditServer.handleClient(true,true,false,parent,args);
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: if(buffer != null && false) {
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer:  buffer.setWaitSocket(socket);
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer:  doNotCloseSocket = true;
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: }
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: if(view != jEdit.getLastView() && false) {
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer:  jEdit.getLastView().setWaitSocket(socket);
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer:  doNotCloseSocket = true;
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: }
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: if(doNotCloseSocket == void)
+2:13:31 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer:  socket.close();
+2:13:31 PM [AWT-EventQueue-0] [debug] BufferSet: 533361798: addBufferSetListener org.gjt.sp.jedit.EditPane[inactive]
+2:13:31 PM [AWT-EventQueue-0] [debug] EditBus: BufferChanging[what=BUFFER_CHANGING,source=org.gjt.sp.jedit.EditPane[inactive]]
+2:13:31 PM [AWT-EventQueue-0] [debug] EditBus: EditPaneUpdate[what=CREATED,source=org.gjt.sp.jedit.EditPane[inactive]]
+2:13:31 PM [AWT-EventQueue-0] [debug] EditBus: ViewUpdate[what=CREATED,source=org.gjt.sp.jedit.View[inactive]]
+2:13:31 PM [AWT-EventQueue-0] [debug] EditBus: ViewUpdate[what=VIEW_ACTIVATED,source=org.gjt.sp.jedit.View[active]]
+2:13:31 PM [AWT-EventQueue-0] [debug] JEditTextArea: InputMethodSupport is activated
+2:13:45 PM [AWT-EventQueue-0] [debug] MiscUtilities: Saving backup of file "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\perspective.xml" to "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\settings-backup\perspective.xml~1~"
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [message] EditServer: Socket[addr=/127.0.0.1,port=50599,localport=50443]: connected
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: Socket[addr=/127.0.0.1,port=50599,localport=50443]: authenticated successfully
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: parent = "C:\\Users\\Fazraneh_PC\\eclipse-workspace-jedit\\cs515-001-s20-Fari-Marylou-jedit";
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: args = new String[1];
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: args[0] = null;
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: view = jEdit.getLastView();
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: buffer = EditServer.handleClient(true,true,false,parent,args);
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: if(buffer != null && false) {
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer:  buffer.setWaitSocket(socket);
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer:  doNotCloseSocket = true;
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: }
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: if(view != jEdit.getLastView() && false) {
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer:  jEdit.getLastView().setWaitSocket(socket);
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer:  doNotCloseSocket = true;
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: }
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer: if(doNotCloseSocket == void)
+2:14:43 PM [jEdit server daemon [C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\server]] [debug] EditServer:  socket.close();
+2:14:43 PM [AWT-EventQueue-0] [debug] BufferSet: 1865798919: addBufferSetListener org.gjt.sp.jedit.EditPane[inactive]
+2:14:43 PM [AWT-EventQueue-0] [debug] EditBus: BufferChanging[what=BUFFER_CHANGING,source=org.gjt.sp.jedit.EditPane[inactive]]
+2:14:43 PM [AWT-EventQueue-0] [debug] EditBus: EditPaneUpdate[what=CREATED,source=org.gjt.sp.jedit.EditPane[inactive]]
+2:14:43 PM [AWT-EventQueue-0] [debug] EditBus: ViewUpdate[what=CREATED,source=org.gjt.sp.jedit.View[inactive]]
+2:14:43 PM [AWT-EventQueue-0] [debug] EditBus: ViewUpdate[what=VIEW_ACTIVATED,source=org.gjt.sp.jedit.View[active]]
+2:14:43 PM [AWT-EventQueue-0] [debug] JEditTextArea: InputMethodSupport is activated
+2:14:45 PM [AWT-EventQueue-0] [debug] MiscUtilities: Saving backup of file "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\perspective.xml" to "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\settings-backup\perspective.xml~1~"
+2:19:43 PM [AWT-EventQueue-0] [debug] EditBus: ViewUpdate[what=CLOSED,source=org.gjt.sp.jedit.View[inactive]]
+2:19:43 PM [AWT-EventQueue-0] [debug] EditBus: EditPaneUpdate[what=DESTROYED,source=org.gjt.sp.jedit.EditPane[active]]
+2:19:43 PM [AWT-EventQueue-0] [debug] BufferSet: 533361798: Buffer removed Untitled-1 (%USERPROFILE%\cs515-softwareMaintananceEvolution\cs515-001-s20-Fari-Marylou-jedit\)
+2:19:44 PM [AWT-EventQueue-0] [debug] EditBus: ViewUpdate[what=CLOSED,source=org.gjt.sp.jedit.View[active]]
+2:19:44 PM [AWT-EventQueue-0] [debug] EditBus: EditPaneUpdate[what=DESTROYED,source=org.gjt.sp.jedit.EditPane[active]]
+2:19:44 PM [AWT-EventQueue-0] [debug] BufferSet: 1865798919: Buffer removed Untitled-1 (%USERPROFILE%\cs515-softwareMaintananceEvolution\cs515-001-s20-Fari-Marylou-jedit\)
+2:19:45 PM [AWT-EventQueue-0] [debug] MiscUtilities: Saving backup of file "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\perspective.xml" to "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\settings-backup\perspective.xml~1~"
+2:19:45 PM [AWT-EventQueue-0] [debug] EditBus: EditorExitRequested[source=org.gjt.sp.jedit.View[active]]
+2:19:45 PM [AWT-EventQueue-0] [message] PerspectiveManager: Saving C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\perspective.xml
+2:19:45 PM [AWT-EventQueue-0] [debug] MiscUtilities: Saving backup of file "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\perspective.xml" to "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\settings-backup\perspective.xml~1~"
+2:19:45 PM [AWT-EventQueue-0] [debug] EditBus: EditorExiting[source=null]
+2:19:45 PM [AWT-EventQueue-0] [debug] EditBus: ViewUpdate[what=CLOSED,source=org.gjt.sp.jedit.View[active]]
+2:19:45 PM [AWT-EventQueue-0] [debug] EditBus: EditPaneUpdate[what=DESTROYED,source=org.gjt.sp.jedit.EditPane[active]]
+2:19:45 PM [AWT-EventQueue-0] [debug] BufferSet: 2111933393: Buffer removed Untitled-1 (%USERPROFILE%\cs515-softwareMaintananceEvolution\cs515-001-s20-Fari-Marylou-jedit\)
+2:19:45 PM [AWT-EventQueue-0] [debug] BufferSetManager: Buffer:Untitled-1 (%USERPROFILE%\cs515-softwareMaintananceEvolution\cs515-001-s20-Fari-Marylou-jedit\) is in no bufferSet anymore, closing it
+2:19:45 PM [AWT-EventQueue-0] [debug] EditBus: PluginUpdate[what=UNLOADED,exit=true,version=5.0,source=C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\jars\QuickNotepad.jar,class=QuickNotepadPlugin]
+2:19:45 PM [AWT-EventQueue-0] [message] BufferHistory: Saving C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\recent.xml
+2:19:45 PM [AWT-EventQueue-0] [debug] MiscUtilities: Saving backup of file "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\recent.xml" to "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\settings-backup\recent.xml~1~"
+2:19:45 PM [AWT-EventQueue-0] [message] KillRing: Saving C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\killring.xml
+2:19:45 PM [AWT-EventQueue-0] [debug] MiscUtilities: Saving backup of file "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\killring.xml" to "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\settings-backup\killring.xml~1~"
+2:19:45 PM [AWT-EventQueue-0] [debug] MiscUtilities: Saving backup of file "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\properties" to "C:\Users\Fazraneh_PC\eclipse-workspace-jedit\cs515-001-s20-Fari-Marylou-jedit\build\settings\settings-backup\properties~1~"

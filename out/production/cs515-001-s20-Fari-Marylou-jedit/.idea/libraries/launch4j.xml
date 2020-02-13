@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="launch4j">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/forms.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/xpp3_min.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/launch4j-workdir-linux.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/launch4j-workdir-mac.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/xstream.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/xmlpull.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/launch4j-workdir-win32.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/ant.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/launch4j-workdir-linux64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/jgoodies-common.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/foxtrot.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/ant-launcher.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/commons-logging.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/commons-beanutils.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/launch4j-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/launch4j/looks.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

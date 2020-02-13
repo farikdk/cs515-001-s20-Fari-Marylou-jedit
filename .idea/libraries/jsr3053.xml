@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jsr3053">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/lib/compile/jsr305.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

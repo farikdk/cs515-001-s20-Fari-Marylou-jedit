@@ -1,0 +1,33 @@
+<component name="libraryTable">
+  <library name="fop">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/commons-logging.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/commons-io.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-util.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-svg-dom.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/avalon-framework-impl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-parser.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-ext.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-extension.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/avalon-framework-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/xml-apis-ext.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-svggen.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-awt-util.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-transcoder.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-xml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-bridge.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/xml-apis.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/xalan.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-js.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-css.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-dom.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/xmlgraphics-commons.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/fop.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-gvt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-script.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/fop/batik-anim.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

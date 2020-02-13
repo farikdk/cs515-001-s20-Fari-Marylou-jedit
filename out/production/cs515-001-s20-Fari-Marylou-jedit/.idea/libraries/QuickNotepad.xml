@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="QuickNotepad">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/build/jars/QuickNotepad.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

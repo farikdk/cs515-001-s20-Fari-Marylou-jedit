@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="scripting1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/lib/scripting/bcprov-jdk16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/scripting/bsf.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/scripting/bsh.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/scripting/commons-logging.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/scripting/bcpg-jdk16.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

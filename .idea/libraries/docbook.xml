@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="docbook">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/lib/docbook/xercesImpl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/docbook/xml-apis.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/docbook/docbook-xsl-saxon.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/docbook/docbook-xsl-resources.zip!/" />
+      <root url="jar://$PROJECT_DIR$/bin/lib/docbook/saxon.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
