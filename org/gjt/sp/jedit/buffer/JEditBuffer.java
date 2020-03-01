@@ -3010,5 +3010,34 @@ loop:		for(int i = 0; i < seg.count; i++)
 		return columnBlock;
 	}
 	 //}}}
+
+	/** #je-1: this function is added by Fari to count the number of words */
+	public int countWords()
+	{
+		/* specify the length of buffer/file*/
+		int start = 0;
+		int len = contentMgr.getLength();
+
+		if (len == 0)
+			return len; /* return zero as the number of words in file */
+		else{
+			/* extract the text written in the buffer and count its words */
+			String txt = contentMgr.getText(start, len);
+			String[] words = txt.split("\\s+");
+			return words.length;
+		}
+	}
+
+	public int getWordOffset(int position){
+		String text = contentMgr.getText(0, position);
+//		if (text.length() == 0 || text.charAt(position) == ' ')
+        if (text.length() == 0)
+			return 0;
+
+		else{
+			String[] words = text.split("\\s+");
+			return words.length;
+		}
+	}
 //}}}
 }

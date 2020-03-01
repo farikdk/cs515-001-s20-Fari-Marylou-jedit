@@ -354,6 +354,8 @@ public class StatusBar extends JPanel
 
 			int caretPosition = textArea.getCaretPosition();
 			int currLine = textArea.getCaretLine();
+			/** jr-1 */
+            int wordPosition = caretPosition;
 
 			// there must be a better way of fixing this...
 			// the problem is that this method can sometimes
@@ -380,12 +382,12 @@ public class StatusBar extends JPanel
 
 			if (jEdit.getBooleanProperty("view.status.show-caret-linenumber", true))
 			{
-				buf.append(currLine + 1);
+				buf.append(currLine + 1); //line number contains caret
 				buf.append(',');
 			}
 			if (jEdit.getBooleanProperty("view.status.show-caret-dot", true))
 			{
-				buf.append(dot + 1);
+				buf.append(dot + 1); // column position of the caret
 			}
 			if (jEdit.getBooleanProperty("view.status.show-caret-virtual", true) &&
 				virtualPosition != dot)
@@ -395,15 +397,15 @@ public class StatusBar extends JPanel
 			}
 			if (buf.length() > 0)
 			{
-				buf.append(' ');
+				buf.append(' '); // space
 			}
 			if (jEdit.getBooleanProperty("view.status.show-caret-offset", true) &&
 				jEdit.getBooleanProperty("view.status.show-caret-bufferlength", true))
 			{
 				buf.append('(');
-				buf.append(caretPosition);
+				buf.append(caretPosition); // character offset of the caret from beginning of the file
 				buf.append('/');
-				buf.append(bufferLength);
+				buf.append(bufferLength); // number of char in files
 				buf.append(')');
 			}
 			else if (jEdit.getBooleanProperty("view.status.show-caret-offset", true))
@@ -416,6 +418,30 @@ public class StatusBar extends JPanel
 			{
 				buf.append('(');
 				buf.append(bufferLength);
+				buf.append(')');
+ 			}
+			/** #je-1: This function is added by Fari to show
+			 * @Caret's_word_offset and ,
+			 * @number_of_words in the file */
+			if (jEdit.getBooleanProperty("view.status.show-caret-wordOffset", true) &&
+				jEdit.getBooleanProperty("view.status.show-caret-wordCount", true))
+			{
+				buf.append('(');
+				buf.append(buffer.getWordOffset(caretPosition));
+				buf.append('/');
+				buf.append(buffer.countWords()); // this is the number of words
+				buf.append(')');
+			}
+			/** #je-1 implemented by Fari */
+			else if (jEdit.getBooleanProperty("view.status.show-caret-wordOffset", true)){
+				buf.append('(');
+				buf.append(buffer.getWordOffset(caretPosition));
+				buf.append(')');
+			}
+			/** #je-1 implemented by Fari */
+			else if (jEdit.getBooleanProperty("view.status.show-caret-wordCount", true)){
+				buf.append('(');
+				buf.append(buffer.countWords()); // this is the number of words
 				buf.append(')');
 			}
 
