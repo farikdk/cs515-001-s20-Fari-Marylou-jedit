@@ -3014,30 +3014,45 @@ loop:		for(int i = 0; i < seg.count; i++)
 	/** #je-1: this function is added by Fari to count the number of words */
 	public int countWords()
 	{
-		/* specify the length of buffer/file*/
 		int start = 0;
+		int space = 0; /* need to specify if text starts with space */
+
 		int len = contentMgr.getLength();
-
 		if (len == 0)
-			return len; /* return zero as the number of words in file */
-		else{
-			/* extract the text written in the buffer and count its words */
-			String txt = contentMgr.getText(start, len);
-			String[] words = txt.split("\\s+");
-			return words.length;
-		}
-	}
+			return 0; /* return zero as the number of words in file */
 
+		String txt = contentMgr.getText(start, len);
+
+		if (txt.startsWith(" ") || txt.startsWith("\t") || txt.startsWith("\n"))
+			space = 1;
+
+		/* extract the text written in the buffer and count its words */
+		txt = contentMgr.getText(start, len);
+		String[] words = txt.split("\\s+");
+		return words.length - space;
+	}
+	/** #je-1: this function is added by Fari to find the caret words' offset */
 	public int getWordOffset(int position){
+		int space = 0 ;
+
 		String text = contentMgr.getText(0, position);
-//		if (text.length() == 0 || text.charAt(position) == ' ')
-        if (text.length() == 0)
+        if (text.length() == 0 || text.isEmpty() )
 			return 0;
 
-		else{
-			String[] words = text.split("\\s+");
-			return words.length;
+        if (text.startsWith(" ") || text.startsWith("\t") || text.startsWith("\n"))
+			space =1;
+
+		String[] words = text.split("\\s+");
+		boolean flag = true;
+		for (int i =0; i < words.length; i++)
+		{
+			if (!words[i].equals(" "))
+				flag = false;
 		}
+		if (flag == true)
+			return 0;
+		else
+			return words.length - space;
 	}
 //}}}
 }
