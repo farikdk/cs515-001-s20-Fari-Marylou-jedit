@@ -129,14 +129,25 @@ public class StatusBarOptionPane extends AbstractOptionPane
 		showCaretBufferLength = new JCheckBox(jEdit.getProperty("options.status.caret.bufferlength", "Show length of file"),
 			jEdit.getBooleanProperty("view.status.show-caret-bufferlength", true));
 		showCaretBufferLength.setName("showCaretBufferLength");
+
+		/** for #je-1 implemented by Fari*/
+		showCaretWordOffset = new JCheckBox(jEdit.getProperty("options.status.caret.wordOffset", "Show word offset from start of file"),
+				jEdit.getBooleanProperty("view.status.show-caret-wordOffset", true));
+		showCaretWordOffset.setName("showCaretWordOffset");
+		/** for #je-1 implemented by Fari*/
+		showWordCount = new JCheckBox(jEdit.getProperty("options.status.caret.wordCount", "Show number of words"),
+				jEdit.getBooleanProperty("view.status.show-caret-wordCount", true));
+		showWordCount.setName("showWordCount");
+
 		optionsPanel.addComponent(showCaretLineNumber);
 		optionsPanel.addComponent(showCaretDot);
 		optionsPanel.addComponent(showCaretVirtual);
 		optionsPanel.addComponent(showCaretOffset);
 		optionsPanel.addComponent(showCaretBufferLength);
-
+		/** for #je-1 implemented by Fari*/
+		optionsPanel.addComponent(showCaretWordOffset);
+		optionsPanel.addComponent(showWordCount);
 		//}}}
-
 
 		//{{{ widgets panel
 		String statusbar = jEdit.getProperty("view.status");
@@ -237,6 +248,10 @@ public class StatusBarOptionPane extends AbstractOptionPane
 		jEdit.setBooleanProperty("view.status.show-caret-virtual", showCaretVirtual.isSelected());
 		jEdit.setBooleanProperty("view.status.show-caret-offset", showCaretOffset.isSelected());
 		jEdit.setBooleanProperty("view.status.show-caret-bufferlength", showCaretBufferLength.isSelected());
+		/**added by Fari for #je-1*/
+		jEdit.setBooleanProperty("view.status.show-caret-wordOffset", showCaretWordOffset.isSelected());
+		jEdit.setBooleanProperty("view.status.show-caret-wordCount", showWordCount.isSelected());
+
 
 	} //}}}
 
@@ -262,6 +277,9 @@ public class StatusBarOptionPane extends AbstractOptionPane
 	private JCheckBox showCaretVirtual;
 	private JCheckBox showCaretOffset;
 	private JCheckBox showCaretBufferLength;
+	/** Added by Fari for je-1*/
+	private JCheckBox showCaretWordOffset;
+	private JCheckBox showWordCount;
 	//}}}
 
 	//{{{ updateButtons() method
