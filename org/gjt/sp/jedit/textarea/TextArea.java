@@ -43,12 +43,7 @@ import javax.swing.plaf.LayerUI;
 import javax.swing.text.Segment;
 import javax.swing.text.TabExpander;
 
-import org.gjt.sp.jedit.Debug;
-import org.gjt.sp.jedit.IPropertyManager;
-import org.gjt.sp.jedit.JEditActionContext;
-import org.gjt.sp.jedit.JEditActionSet;
-import org.gjt.sp.jedit.JEditBeanShellAction;
-import org.gjt.sp.jedit.TextUtilities;
+import org.gjt.sp.jedit.*;
 import org.gjt.sp.jedit.buffer.JEditBuffer;
 import org.gjt.sp.jedit.input.AbstractInputHandler;
 import org.gjt.sp.jedit.input.DefaultInputHandlerProvider;
@@ -151,6 +146,13 @@ public abstract class TextArea extends JPanel
 		// (eg, from the recent file list)
 		focusedComponent = this;
 	} //}}}
+
+	public void toggleScrollBars(){
+		vertical.setVisible(jEdit.getBooleanProperty("view.scroll.visible"));
+		horizontal.setVisible(jEdit.getBooleanProperty("view.scroll.visible"));
+//		repaint();
+		propertiesChanged();
+	}
 
 	//{{{ getFoldPainter() method
 	public FoldPainter getFoldPainter()
@@ -4859,6 +4861,10 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	{
 		if(buffer == null)
 			return;
+
+		//set scroll bar visibility je-2
+		vertical.setVisible(jEdit.getBooleanProperty("view.scroll.visible"));
+		horizontal.setVisible(jEdit.getBooleanProperty("view.scroll.visible"));
 		
 		if(buffer.getBooleanProperty("elasticTabstops"))
 		{
@@ -4911,6 +4917,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 			displayManager.invalidateScreenLineCounts();
 			displayManager.notifyScreenLineChanges();
 		}
+
 		chunkCache.reset();
 		gutter.repaint();
 		painter.repaint();
