@@ -426,6 +426,11 @@ view.status.memory.foreground=#cccccc
 view.status.memory.background=#666699a
 #}}}
 
+#{{{ Scroll bar
+# added to implement je-2
+view.scroll.visible=true
+#}}}
+
 #}}}
 
 #{{{ Printing settings

@@ -1581,6 +1581,19 @@
 		return view.getStatus().isShowing();
 	</IS_SELECTED>
 </ACTION>
+	
+<ACTION NAME="toggle-scrollbar">
+	<!-- added to implement je-2                                                      -->
+	<CODE>
+		boolean showingScroll = jEdit.getBooleanProperty("view.scroll.visible");
+		jEdit.setBooleanProperty("view.scroll.visible", !showingScroll);
+		textArea.toggleScrollBars();
+		jEdit.propertiesChanged();
+	</CODE>
+	<IS_SELECTED>
+		return jEdit.getBooleanProperty("view.scroll.visible");
+	</IS_SELECTED>
+</ACTION>	
 
 <ACTION NAME="toggle-line-separator">
 	<CODE>

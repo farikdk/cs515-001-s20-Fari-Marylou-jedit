@@ -366,6 +366,7 @@ folds=collapse-fold \
 #}}}
 
 #{{{ View menu
+# adding new option to support je-2
 view=new-view \
 	 new-plain-view \
 	 close-view \
@@ -378,6 +379,7 @@ view=new-view \
 	 toggle-line-numbers \
 	 print.toggle-show-page-breaks \
 	 toggle-statusbar \
+	 toggle-scrollbar \
 	 toggle-gutter \
 	 toggle-buffer-switcher \
 	 - \
