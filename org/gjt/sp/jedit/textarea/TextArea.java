@@ -147,11 +147,9 @@ public abstract class TextArea extends JPanel
 		focusedComponent = this;
 	} //}}}
 
-	public void toggleScrollBars(){
+	public void updateScrollBars(){
 		vertical.setVisible(jEdit.getBooleanProperty("view.scroll.visible"));
 		horizontal.setVisible(jEdit.getBooleanProperty("view.scroll.visible"));
-//		repaint();
-		propertiesChanged();
 	}
 
 	//{{{ getFoldPainter() method

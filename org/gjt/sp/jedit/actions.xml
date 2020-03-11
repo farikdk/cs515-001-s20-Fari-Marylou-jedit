@@ -1587,7 +1587,7 @@
 	<CODE>
 		boolean showingScroll = jEdit.getBooleanProperty("view.scroll.visible");
 		jEdit.setBooleanProperty("view.scroll.visible", !showingScroll);
-		textArea.toggleScrollBars();
+		textArea.updateScrollBars();
 		jEdit.propertiesChanged();
 	</CODE>
 	<IS_SELECTED>
