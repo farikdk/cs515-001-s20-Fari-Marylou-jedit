@@ -137,7 +137,7 @@ import org.gjt.sp.util.StandardUtilities;
  * @author John Gellene (API documentation)
  * @version $Id$
  */
-public class View extends JFrame implements InputHandlerProvider
+public abstract class View extends JFrame implements InputHandlerProvider
 {
 	//{{{ User interface
 
@@ -248,6 +248,8 @@ public class View extends JFrame implements InputHandlerProvider
 	 * @since jEdit 4.2pre1
 	 */
 	public static final int BELOW_STATUS_BAR_LAYER = -150;
+
+
 	//}}}
 
 	//}}}
@@ -1082,6 +1084,21 @@ public class View extends JFrame implements InputHandlerProvider
 		}
 	} //}}}
 
+	/** create a factory class as a constructor
+	 * for getViewConfig() method to call proper
+	 * class based on the Frame variable.
+	 */
+	static View createView(Buffer buffer, ViewConfig config) {
+		if (config.extState == Frame.MAXIMIZED_BOTH || config.extState == Frame.ICONIFIED) {
+			return new ViewMaxVerticalHorizontalFrame(buffer, config);
+		} else if (config.extState == Frame.MAXIMIZED_VERT) {
+			return new ViewMaxVerticalFrame(buffer, config);
+		} else if (config.extState == Frame.MAXIMIZED_HORIZ) {
+			return new ViewMaxHorizontalFrame(buffer, config);
+		}
+		return new ViewDefaultFrame(buffer, config);
+	}
+
 	//{{{ getViewConfig() method
 	/**
 	 * @return a ViewConfig instance for the current view
@@ -1096,40 +1113,11 @@ public class View extends JFrame implements InputHandlerProvider
 		config.docking = dockableWindowManager.getDockingLayout(config);
 		config.title = userTitle;
 		String prefix = config.plainView ? "plain-view" : "view";
-		switch (config.extState)
-		{
-			case Frame.MAXIMIZED_BOTH:
-			case Frame.ICONIFIED:
-				config.x = jEdit.getIntegerProperty(prefix + ".x",getX());
-				config.y = jEdit.getIntegerProperty(prefix + ".y",getY());
-				config.width = jEdit.getIntegerProperty(prefix + ".width",getWidth());
-				config.height = jEdit.getIntegerProperty(prefix + ".height",getHeight());
-				break;
-
-			case Frame.MAXIMIZED_VERT:
-				config.x = getX();
-				config.y = jEdit.getIntegerProperty(prefix + ".y",getY());
-				config.width = getWidth();
-				config.height = jEdit.getIntegerProperty(prefix + ".height",getHeight());
-				break;
-
-			case Frame.MAXIMIZED_HORIZ:
-				config.x = jEdit.getIntegerProperty(prefix + ".x",getX());
-				config.y = getY();
-				config.width = jEdit.getIntegerProperty(prefix + ".width",getWidth());
-				config.height = getHeight();
-				break;
-
-			case Frame.NORMAL:
-			default:
-				config.x = getX();
-				config.y = getY();
-				config.width = getWidth();
-				config.height = getHeight();
-				break;
-		}
+		setViewConfig(config, prefix);
 		return config;
 	} //}}}
+
+	protected abstract void setViewConfig(ViewConfig config, String prefix);
 
 	//}}}
 

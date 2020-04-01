@@ -2724,7 +2724,7 @@ public class jEdit
 				view.getEditPane().saveCaretInfo();
 			}
 
-			View newView = new View(buffer,config);
+			View newView = View.createView(buffer,config);
 			addViewToList(newView);
 
 			EditBus.send(new ViewUpdate(newView,ViewUpdate.CREATED));
