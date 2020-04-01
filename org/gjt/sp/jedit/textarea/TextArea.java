@@ -745,7 +745,7 @@ public abstract class TextArea extends JPanel
 	 * @param doElectricScroll If true, electric scrolling will be performed
 	 * @since jEdit 4.0pre6
 	 */
-	public void scrollTo(int line, int offset, boolean doElectricScroll)
+	public void scrollTo(int line, int offset, boolean doElectricScroll) // REFACTOR THIS
 	{
 		if (buffer.isLoading())
 			return;
@@ -753,20 +753,8 @@ public abstract class TextArea extends JPanel
 			Log.log(Log.DEBUG,this,"scrollTo(), lineCount="
 				+ getLineCount());
 
-		if(visibleLines <= 1)
-		{
-			if(Debug.SCROLL_TO_DEBUG)
-			Log.log(Log.DEBUG,this,"visibleLines <= 0");
-			// Fix the case when the line is wrapped
-			// it was not possible to see the second (or next)
-			// subregion of a line
-			ChunkCache.LineInfo[] infos = chunkCache
-				.getLineInfosForPhysicalLine(line);
-			int subregion = ChunkCache.getSubregionOfOffset(
-				offset,infos);
-			setFirstPhysicalLine(line,subregion);
-			return;
-		}
+		/** Create this method for refactoring */
+		if (visibleLinesLessThanOne(line, offset)) return; // I created
 
 		//{{{ Get ready
 		int extraEndVirt;
@@ -779,84 +767,14 @@ public abstract class TextArea extends JPanel
 		else
 			extraEndVirt = 0;
 
-		int _electricScroll = doElectricScroll
-			&& visibleLines - 1 > (electricScroll << 1)
-				      ? electricScroll : 0;
+		int _electricScroll = getElectricScroll(doElectricScroll
+				&& visibleLines - 1 > (electricScroll << 1), electricScroll, 0);
 		//}}}
 
 		//{{{ Scroll vertically
 		int screenLine = chunkCache.getScreenLineOfOffset(line,offset);
 		int visibleLines = getVisibleLines();
-		if(screenLine == -1)
-		{
-			// We are scrolling to a position that is not on the screen.
-			if(Debug.SCROLL_TO_DEBUG)
-				Log.log(Log.DEBUG,this,"screenLine == -1");
-			ChunkCache.LineInfo[] infos = chunkCache
-				.getLineInfosForPhysicalLine(line);
-			int subregion = ChunkCache.getSubregionOfOffset(
-				offset,infos);
-			int prevLine = displayManager.getPrevVisibleLine(getFirstPhysicalLine());
-			int nextLine = displayManager.getNextVisibleLine(getLastPhysicalLine());
-			if(line == getFirstPhysicalLine())
-			{
-				if(Debug.SCROLL_TO_DEBUG)
-					Log.log(Log.DEBUG,this,line + " == " + getFirstPhysicalLine());
-				setFirstPhysicalLine(line,subregion
-					- _electricScroll);
-			}
-			else if(line == prevLine)
-			{
-				if(Debug.SCROLL_TO_DEBUG)
-					Log.log(Log.DEBUG,this,line + " == " + prevLine);
-				setFirstPhysicalLine(prevLine,subregion
-					- _electricScroll);
-			}
-			else if(line == getLastPhysicalLine())
-			{
-				if(Debug.SCROLL_TO_DEBUG)
-					Log.log(Log.DEBUG,this,line + " == " + getLastPhysicalLine());
-				setFirstPhysicalLine(line,
-					subregion + _electricScroll
-					- visibleLines
-					+ (lastLinePartial ? 2 : 1));
-			}
-			else if(line == nextLine)
-			{
-				if(Debug.SCROLL_TO_DEBUG)
-					Log.log(Log.DEBUG,this,line + " == " + nextLine);
-				setFirstPhysicalLine(nextLine,
-					subregion + _electricScroll
-					- visibleLines
-					+ (lastLinePartial ? 2 : 1));
-			}
-			else
-			{
-				if(Debug.SCROLL_TO_DEBUG)
-				{
-					Log.log(Log.DEBUG,this,"neither");
-					Log.log(Log.DEBUG,this,"Last physical line is " + getLastPhysicalLine());
-				}
-				setFirstPhysicalLine(line,subregion - (visibleLines >> 1));
-				if(Debug.SCROLL_TO_DEBUG)
-				{
-					Log.log(Log.DEBUG,this,"Last physical line is " + getLastPhysicalLine());
-				}
-			}
-		}
-		else if(screenLine < _electricScroll)
-		{
-			if(Debug.SCROLL_TO_DEBUG)
-				Log.log(Log.DEBUG,this,"electric up");
-			setFirstLine(getFirstLine() - _electricScroll + screenLine);
-		}
-		else if(screenLine > visibleLines - _electricScroll
-			- (lastLinePartial ? 2 : 1))
-		{
-			if(Debug.SCROLL_TO_DEBUG)
-				Log.log(Log.DEBUG,this,"electric down");
-			setFirstLine(getFirstLine() + _electricScroll - visibleLines + screenLine + (lastLinePartial ? 2 : 1));
-		} //}}}
+		setDebugForOutOfScreenScroll(line, offset, _electricScroll, screenLine, visibleLines); // created
 
 		//{{{ Scroll horizontally
 		if(!displayManager.isLineVisible(line))
@@ -865,6 +783,11 @@ public abstract class TextArea extends JPanel
 		Point point = offsetToXY(line,offset,offsetXY);
 
 		point.x += extraEndVirt;
+
+		checkPoint(point);
+	} //}}}
+
+	private void checkPoint(Point point) { // Icreated
 
 		if(point.x < 0)
 		{
@@ -877,7 +800,127 @@ public abstract class TextArea extends JPanel
 				(painter.getWidth() - point.x)
 				- charWidth - 5);
 		} //}}}
-	} //}}}
+	}
+
+	private int getElectricScroll(boolean b, int electricScroll, int i) { // I created
+		return b
+				? electricScroll : i;
+	}
+
+	private boolean visibleLinesLessThanOne(int line, int offset) { // created
+		if(visibleLines <= 1)
+		{
+			if(Debug.SCROLL_TO_DEBUG)
+			Log.log(Log.DEBUG,this,"visibleLines <= 0");
+			// Fix the case when the line is wrapped
+			// it was not possible to see the second (or next)
+			// subregion of a line
+			ChunkCache.LineInfo[] infos = chunkCache
+				.getLineInfosForPhysicalLine(line);
+			int subregion = ChunkCache.getSubregionOfOffset(
+				offset,infos);
+			setFirstPhysicalLine(line,subregion);
+			return true;
+		}
+		return false;
+	}
+
+	private void setDebugForOutOfScreenScroll(int line, int offset, int _electricScroll, int screenLine, int visibleLines) { // created
+		if(screenLine == -1)
+		{
+			// We are scrolling to a position that is not on the screen.
+			setDebugForOutOfScreenScroll(line, offset, _electricScroll, visibleLines);
+		}
+		else if(screenLine < _electricScroll)
+		{
+			if(Debug.SCROLL_TO_DEBUG)
+				Log.log(Log.DEBUG,this,"electric up");
+			setFirstLine(getFirstLine() - _electricScroll + screenLine);
+		}
+		else {
+			screenBiggerVisibleLine(_electricScroll, screenLine, visibleLines);
+		}
+	}
+
+	private void screenBiggerVisibleLine(int _electricScroll, int screenLine, int visibleLines) { // I created
+		if(screenLine > visibleLines - _electricScroll
+			- (lastLinePartial ? 2 : 1))
+		{
+			if(Debug.SCROLL_TO_DEBUG)
+				Log.log(Log.DEBUG,this,"electric down");
+			setFirstLine(getFirstLine() + _electricScroll - visibleLines + screenLine + (lastLinePartial ? 2 : 1));
+		} //}}}
+	}
+
+	private void setDebugForOutOfScreenScroll(int line, int offset, int _electricScroll, int visibleLines) { // I created
+		if(Debug.SCROLL_TO_DEBUG)
+			Log.log(Log.DEBUG,this,"screenLine == -1");
+		ChunkCache.LineInfo[] infos = chunkCache
+			.getLineInfosForPhysicalLine(line);
+		int subregion = ChunkCache.getSubregionOfOffset(
+			offset,infos);
+		int prevLine = displayManager.getPrevVisibleLine(getFirstPhysicalLine());
+		int nextLine = displayManager.getNextVisibleLine(getLastPhysicalLine());
+		setDebugParam(line, _electricScroll, visibleLines, subregion, prevLine, nextLine); // this was getProper Lone
+	}
+
+	private void setDebugParam(int line, int _electricScroll, int visibleLines, int subregion, int prevLine, int nextLine) { // I created
+		if(line == getFirstPhysicalLine())
+		{
+			if(Debug.SCROLL_TO_DEBUG)
+				Log.log(Log.DEBUG,this,line + " == " + getFirstPhysicalLine());
+			setFirstPhysicalLine(line,subregion
+				- _electricScroll);
+		}
+		else if(line == prevLine)
+		{
+			if(Debug.SCROLL_TO_DEBUG)
+				Log.log(Log.DEBUG,this,line + " == " + prevLine);
+			setFirstPhysicalLine(prevLine,subregion
+				- _electricScroll);
+		}
+		else {
+			setDebugParam(line, _electricScroll, visibleLines, subregion, nextLine);
+		}
+	}
+
+	private void setDebugParam(int line, int _electricScroll, int visibleLines, int subregion, int nextLine) { // I create
+		if(line == getLastPhysicalLine())
+		{
+			checkDebug(line, _electricScroll, visibleLines, subregion); // I created
+		}
+		else if(line == nextLine)
+		{
+			if(Debug.SCROLL_TO_DEBUG)
+				Log.log(Log.DEBUG,this,line + " == " + nextLine);
+			setFirstPhysicalLine(nextLine,
+				subregion + _electricScroll
+				- visibleLines
+				+ (lastLinePartial ? 2 : 1));
+		}
+		else
+		{
+			if(Debug.SCROLL_TO_DEBUG)
+			{
+				Log.log(Log.DEBUG,this,"neither");
+				Log.log(Log.DEBUG,this,"Last physical line is " + getLastPhysicalLine());
+			}
+			setFirstPhysicalLine(line,subregion - (visibleLines >> 1));
+			if(Debug.SCROLL_TO_DEBUG)
+			{
+				Log.log(Log.DEBUG,this,"Last physical line is " + getLastPhysicalLine());
+			}
+		}
+	}
+
+	private void checkDebug(int line, int _electricScroll, int visibleLines, int subregion) { // I created
+		if(Debug.SCROLL_TO_DEBUG)
+			Log.log(Log.DEBUG,this,line + " == " + getLastPhysicalLine());
+		setFirstPhysicalLine(line,
+			subregion + _electricScroll
+			- visibleLines
+			+ (lastLinePartial ? 2 : 1));
+	}
 
 	//{{{ addScrollListener() method
 	/**
@@ -1031,8 +1074,7 @@ public abstract class TextArea extends JPanel
 			int offset = lineStartOffset + offsetInLine;
 			final LineCharacterBreaker charBreaker =
 				new LineCharacterBreaker(this, offset);
-			int lower = charBreaker.offsetIsBoundary(offset) ?
-				offset : charBreaker.previousOf(offset);
+			int lower = getElectricScroll(charBreaker.offsetIsBoundary(offset), offset, charBreaker.previousOf(offset));
 			if (round)
 			{
 				float lowerX = Chunk.offsetToX(lineInfo.chunks,
