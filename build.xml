@@ -313,6 +313,7 @@
 					 includes="*.jar"/>
 				<pathelement location="${classes.dir}/core"/>
 			</classpath>
+			<include name="org/**"/>
 			<compilerarg line="${config.build.compilerarg}"/>
 		</javac>
 	</target>
@@ -490,6 +491,7 @@
 			<classpath location="${ant.library.dir}/ant.jar"/>
 			<classpath location="${ant.library.dir}/ant-junit.jar"/>
 			<classpath location="${ant.library.dir}/ant-junit4.jar"/>
+			<classpath location="lib/junit-dep.jar"/>
 			<formatter type="xml"/>
 			<batchtest todir="${build.dir}/test/raw-reports">
 				<fileset dir="test"/>
