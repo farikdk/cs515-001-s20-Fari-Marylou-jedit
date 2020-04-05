@@ -47,4 +47,9 @@ public class JEditEmbeddedTextArea extends TextArea
 		buffer.setMode(ModeProvider.instance.getMode("text"));
 		setBuffer(buffer);
 	} //}}}
+
+	@Override
+	public void smartEnd(boolean select) {
+
+	}
 }

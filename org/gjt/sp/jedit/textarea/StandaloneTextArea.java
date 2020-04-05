@@ -477,6 +477,12 @@ public class StandaloneTextArea extends TextArea
 	} //}}}
 
 	//{{{ propertiesChanged() method
+
+	@Override
+	public void smartEnd(boolean select) {
+
+	}
+
 	/**
 	 * Reinitializes the textarea by reading the properties from the property manager
 	 */

@@ -77,7 +77,7 @@ public abstract class TextArea extends JPanel
 	 * @param propertyManager the property manager that contains informations like shortcut bindings
 	 * @param inputHandlerProvider the inputHandlerProvider
 	 */
-	protected TextArea(IPropertyManager propertyManager, InputHandlerProvider inputHandlerProvider)
+	TextArea(IPropertyManager propertyManager, InputHandlerProvider inputHandlerProvider)
 	{
 		this.inputHandlerProvider = inputHandlerProvider;
 		enableEvents(AWTEvent.FOCUS_EVENT_MASK | AWTEvent.KEY_EVENT_MASK);
@@ -146,6 +146,28 @@ public abstract class TextArea extends JPanel
 		// (eg, from the recent file list)
 		focusedComponent = this;
 	} //}}}
+
+	protected static TextArea createTextArea(IPropertyManager propertyManager, InputHandlerProvider inputHandlerProvider) {
+//		switch (getInputHandler().getLastActionCount()) {
+//			case 1:
+//				return new TextArea1(propertyManager, inputHandlerProvider);
+//			case 2:
+//				return new TextArea2(propertyManager, inputHandlerProvider);
+//			case 3:
+//				return new TextArea3(propertyManager, inputHandlerProvider);
+//			default: //case 4:
+//				return new TextAreaDefault(propertyManager, inputHandlerProvider);
+//		}
+
+		if (getInputHandler().getLastActionCount() ==1)
+			return new TextArea1(propertyManager, inputHandlerProvider);
+		else if (getInputHandler().getLastActionCount() ==2)
+			return new TextArea2(propertyManager, inputHandlerProvider);
+		else if (getInputHandler().getLastActionCount() ==3)
+			return new TextArea3(propertyManager, inputHandlerProvider);
+		else
+			return new TextAreaDefault(propertyManager, inputHandlerProvider);
+	}
 
 	public void updateScrollBars(){
 		vertical.setVisible(jEdit.getBooleanProperty("view.scroll.visible"));
@@ -255,7 +277,7 @@ public abstract class TextArea extends JPanel
 	/**
 	 * @since jEdit 4.3pre1
 	 */
-	public AbstractInputHandler getInputHandler()
+	public static AbstractInputHandler getInputHandler()
 	{
 
 		return inputHandlerProvider.getInputHandler();
@@ -3064,27 +3086,8 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 	 * @param select true if you want to extend selection
 	 * @since jEdit 4.3pre18
 	 */
-	public void smartEnd(boolean select)
-	{
-		switch(getInputHandler().getLastActionCount())
-		{
-		case 1:
-			int pos = getCaretPosition();
-			goToEndOfCode(select);
-			int npos = getCaretPosition();
-			if (npos == pos) goToEndOfWhiteSpace(select);
-			break;
-		case 2:
-			goToEndOfWhiteSpace(select);
-			break;
-		case 3:
-			goToEndOfLine(select);
-			break;
-		default: //case 4:
-			goToLastVisibleLine(select);
-			break;
-		}
-	} //}}}
+	public abstract void smartEnd(boolean select) //}}}
+	;
 
 	//{{{ goToStartOfLine() method
 	/**
@@ -5258,7 +5261,7 @@ loop:		for(int i = lineNo - 1; i >= 0; i--)
 
 	private boolean caretBlinks;
 	private final ElasticTabstopsTabExpander elasticTabstopsExpander = new ElasticTabstopsTabExpander(this);
-	protected InputHandlerProvider inputHandlerProvider;
+	protected static InputHandlerProvider inputHandlerProvider;
 
 	private InputMethodSupport inputMethodSupport;
 
