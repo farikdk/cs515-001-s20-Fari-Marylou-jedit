@@ -59,14 +59,14 @@ import org.gjt.sp.jedit.print.PageBreakExtension;
  * @author John Gellene (API documentation)
  * @version $Id$
  */
-public class JEditTextArea extends TextArea
+public abstract class JEditTextArea extends TextArea
 {
 
 	//{{{ JEditTextArea constructor
 	/**
 	 * Creates a new JEditTextArea.
 	 */
-	public JEditTextArea(View view)
+	protected JEditTextArea(View view)
 	{
 		super(jEdit.getPropertyManager(), view);
 		enableEvents(AWTEvent.FOCUS_EVENT_MASK | AWTEvent.KEY_EVENT_MASK);
@@ -76,6 +76,19 @@ public class JEditTextArea extends TextArea
 		new PageBreakExtension(this);
 		EditBus.addToBus(this);
 	} //}}}
+
+	public static JEditTextArea createJEditTextArea(View view) {
+		switch (view.getInputHandler().getLastActionCount()) {
+			case 1:
+				return new JEditTextArea1(view);
+
+			case 2:
+				return new JEditTextArea2(view);
+
+			default: //case 3:
+				return new JEditTextAreaDefault(view);
+		}
+	}
 
 	//{{{ dispose() method
 	@Override
@@ -187,27 +200,10 @@ public class JEditTextArea extends TextArea
 	{
 		Macros.Recorder recorder = view.getMacroRecorder();
 
-		switch(view.getInputHandler().getLastActionCount())
-		{
-		case 1:
-			if(recorder != null)
-				recorder.record("textArea.goToEndOfWhiteSpace(" + select + ");");
-
-			goToEndOfWhiteSpace(select);
-			break;
-		case 2:
-			if(recorder != null)
-				recorder.record("textArea.goToEndOfLine(" + select + ");");
-
-			goToEndOfLine(select);
-			break;
-		default: //case 3:
-			if(recorder != null)
-				recorder.record("textArea.goToLastVisibleLine(" + select + ");");
-			goToLastVisibleLine(select);
-			break;
-		}
+		checkRecorder(select, recorder);
 	} //}}}
+
+	protected abstract void checkRecorder(boolean select, Macros.Recorder recorder);
 	// }}}
 
 	// {{{ overrides from the base class that are EditBus  aware
