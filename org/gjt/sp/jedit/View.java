@@ -1324,7 +1324,7 @@ public class View extends JFrame implements InputHandlerProvider
 	View next;
 
 	//{{{ View constructor
-	View(Buffer buffer, ViewConfig config)
+	public View(Buffer buffer, ViewConfig config)
 	{
 		fullScreenMode = false;
 		menuBar = null;
