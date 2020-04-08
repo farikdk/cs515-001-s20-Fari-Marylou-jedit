@@ -78,12 +78,12 @@ public abstract class JEditTextArea extends TextArea
 	} //}}}
 
 	public static JEditTextArea createJEditTextArea(View view) {
-		//case 3:
+
 		if (view.getInputHandler().getLastActionCount() == 1)
 			return new JEditTextArea1(view);
 		else if (view.getInputHandler().getLastActionCount() == 2)
 			return new JEditTextArea2(view);
-		else
+		else //case 3:
 			return new JEditTextAreaDefault(view);
 	}
 
