@@ -232,21 +232,7 @@ main_loop:	for(pos = line.offset; pos < lineLength; pos++)
 		markKeyword(true);
 		//}}}
 
-		//{{{ Unwind any NO_LINE_BREAK parent delegates
-unwind:		while(context.parent != null)
-		{
-			ParserRule rule = context.parent.inRule;
-			if((rule != null && (rule.action
-				& ParserRule.NO_LINE_BREAK) == ParserRule.NO_LINE_BREAK)
-				|| terminated)
-			{
-				context = context.parent;
-				keywords = context.rules.getKeywords();
-				context.setInRule(null);
-			}
-			else
-				break unwind;
-		} //}}}
+		context = unwind(terminated, context);
 
 		tokenHandler.handleToken(line,Token.END,
 			pos - line.offset,0,context);
@@ -260,6 +246,25 @@ unwind:		while(context.parent != null)
 
 		return context;
 	} //}}}
+
+	LineContext unwind(boolean terminated, LineContext context) {
+		//{{{ Unwind any NO_LINE_BREAK parent delegates
+		unwindlabel:		while(context.parent != null)
+				{
+					ParserRule rule = context.parent.inRule;
+					if((rule != null && (rule.action
+						& ParserRule.NO_LINE_BREAK) == ParserRule.NO_LINE_BREAK)
+						|| terminated)
+					{
+						context = context.parent;
+						keywords = context.rules.getKeywords();
+						context.setInRule(null);
+					}
+					else
+						break unwindlabel;
+				} //}}}
+		return context;
+	}
 
 	//{{{ Private members
 
