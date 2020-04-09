@@ -49,12 +49,12 @@ public class TokenMarkerTest {
     public void tearDown() {
     }
 
-    protected ParserRule createRuleNoLineBreak(ParserRuleSet rules) {
+    protected ParserRule createRuleNoLineBreak(ParserRuleSet rules, boolean lineBreak) {
     // Set up parent rule to contain NO_LINE_BREAK which enables an unwind
         byte id = 0;
         byte matchType = 0;
         ParserRule rule = ParserRule.createSpanRule(0, "start", 1,
-            "end", rules, id, matchType, true, false, "");
+            "end", rules, id, matchType, !lineBreak, false, "");
         return rule;
     }
 
@@ -95,7 +95,7 @@ public class TokenMarkerTest {
         // Set processedLC to a clone of the expected results after unwinding
         TokenMarker.LineContext compareLC = (TokenMarker.LineContext) child.clone();
 
-        // Set up terminated to block unwind
+        // Set up terminated to enable unwind but not cause it
         boolean terminated = false;
         // Set up rule to disable unwind
         parent.setInRule(null);
@@ -114,14 +114,14 @@ public class TokenMarkerTest {
         // Need to make a clone before we add the ParserRule since that is set to null when unwinding
         TokenMarker.LineContext compareLC = (TokenMarker.LineContext) parent.clone();
         // Set up parser rule with NO_LINE_BREAK action
-        ParserRule parentRule = createRuleNoLineBreak(rules);
+        ParserRule parentRule = createRuleNoLineBreak(rules, false);
         parent.setInRule(parentRule);
 
         // create child and link to the parent
         TokenMarker.LineContext child = new TokenMarker.LineContext(rules,parent);
         child.spanEndSubst = line1Pattern;
 
-        // Set up terminated to block unwind
+        // Set up terminated to enable unwind but not cause it
         boolean terminated = false;
 
         TokenMarker.LineContext processedLC = tokenMarker.unwind(terminated, child);
@@ -134,31 +134,66 @@ public class TokenMarkerTest {
     @Test
     public void unwind1Test() {
         // Create three LineContext link them together through the child's parent attribute
-        // Only the middle LineContext will contain a rule so unwind should only step back to middle LineContext
+        // The middle LineContext will contain a rule with NO_LINE_BREAK,
+        // grandparent's rule will not contain NO_LINE_BREAK so unwind should step back to middle's LineContext
+        // Create three LineContext link them together through the child's parent attribute
+
         TokenMarker.LineContext grandparent = new TokenMarker.LineContext(rules,null);
         grandparent.spanEndSubst = line3Pattern;
-        grandparent.setInRule(null);
+        ParserRule grandparentRule = createRuleNoLineBreak(rules, true);
+        grandparent.setInRule(grandparentRule);
 
         TokenMarker.LineContext parent = new TokenMarker.LineContext(rules,grandparent);
         parent.spanEndSubst = line2Pattern;
-        ParserRule parentRule = createRuleNoLineBreak(rules);
+        // Set compareLC to a clone of the expected results after unwinding
+        // Need to make a clone before we add the ParserRule since that is set to null when unwinding
+        TokenMarker.LineContext compareLC = (TokenMarker.LineContext) parent.clone();
+        ParserRule parentRule = createRuleNoLineBreak(rules, false);
         parent.setInRule(parentRule);
 
         TokenMarker.LineContext child = new TokenMarker.LineContext(rules,parent);
         child.spanEndSubst = line1Pattern;
         child.setInRule(null);
 
-        // Set compareLC to a clone of the expected results after unwinding
-        TokenMarker.LineContext compareLC = (TokenMarker.LineContext) child.parent.clone();
-        // Need to reset ParserRule to null since unwind will also do that
-        compareLC.setInRule(null);
-
-        // Set up terminated to block unwind
+        // Set up terminated to enable unwind but not cause it
         boolean terminated = false;
 
         TokenMarker.LineContext processedLC = tokenMarker.unwind(terminated, child);
 
         assertTrue(Arrays.equals(line2Pattern,processedLC.spanEndSubst));
+        assertTrue(processedLC.equals(compareLC));
+
+    }
+
+    @Test
+    public void unwind2Test() {
+        // Create three LineContext link them together through the child's parent attribute
+        // The middle LineContext will contain a rule with NO_LINE_BREAK,
+        // grandparent's rule will also contain NO_LINE_BREAK so unwind should step back to grandparent's LineContext
+
+        TokenMarker.LineContext grandparent = new TokenMarker.LineContext(rules,null);
+        grandparent.spanEndSubst = line3Pattern;
+        // Set compareLC to a clone of the expected results after unwinding
+        // Need to make a clone before we add the ParserRule since that is set to null when unwinding
+        TokenMarker.LineContext compareLC = (TokenMarker.LineContext) grandparent.clone();
+        ParserRule grandparentRule = createRuleNoLineBreak(rules, false);
+        grandparent.setInRule(grandparentRule);
+
+        TokenMarker.LineContext parent = new TokenMarker.LineContext(rules,grandparent);
+        parent.spanEndSubst = line2Pattern;
+        ParserRule parentRule = createRuleNoLineBreak(rules, false);
+        parent.setInRule(parentRule);
+
+        TokenMarker.LineContext child = new TokenMarker.LineContext(rules,parent);
+        child.spanEndSubst = line1Pattern;
+        child.setInRule(null);
+
+        // Set up terminated to enable unwind but not cause it
+        boolean terminated = false;
+
+        TokenMarker.LineContext processedLC = tokenMarker.unwind(terminated, child);
+
+        assertTrue(Arrays.equals(line3Pattern,processedLC.spanEndSubst));
         assertTrue(processedLC.equals(compareLC));
 
     }
@@ -175,7 +210,7 @@ public class TokenMarkerTest {
         TokenMarker.LineContext child = new TokenMarker.LineContext(rules,parent);
         child.spanEndSubst = line1Pattern;
 
-        // Set up terminated to enable unwind
+        // Set up terminated to force unwind
         boolean terminated = true;
 
         // Set compareLC to a clone of the expected results after unwinding

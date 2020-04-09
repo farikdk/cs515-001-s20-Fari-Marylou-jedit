@@ -249,7 +249,7 @@ main_loop:	for(pos = line.offset; pos < lineLength; pos++)
 
 	LineContext unwind(boolean terminated, LineContext context) {
 		//{{{ Unwind any NO_LINE_BREAK parent delegates
-		unwindlabel:		while(context.parent != null)
+		while(context.parent != null)
 				{
 					ParserRule rule = context.parent.inRule;
 					if((rule != null && (rule.action
@@ -261,7 +261,7 @@ main_loop:	for(pos = line.offset; pos < lineLength; pos++)
 						context.setInRule(null);
 					}
 					else
-						break unwindlabel;
+						return context;
 				} //}}}
 		return context;
 	}
