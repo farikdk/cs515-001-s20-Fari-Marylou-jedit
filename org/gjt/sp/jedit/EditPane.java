@@ -813,7 +813,7 @@ public class EditPane extends JPanel implements BufferSetListener
 		this.view = view;
 
 
-		textArea = new JEditTextArea(view);
+		textArea = JEditTextArea.createJEditTextArea(view);
 		bufferSet.addBufferSetListener(this);
 		textArea.getPainter().setAntiAlias(new AntiAlias(jEdit.getProperty("view.antiAlias")));
 		textArea.setMouseHandler(new MouseHandler(textArea));
